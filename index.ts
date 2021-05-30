@@ -45,7 +45,6 @@ class Chain {
         return this.chain[this.chain.length - 1]
     }
 
-    // Proof of work
     mine(nonce: number) {
         let solution = 1;
         console.log('⛏️   Mining...');
@@ -65,7 +64,7 @@ class Chain {
         }
     }
 
-    // Add a new block to the chain if valid signature & proof of work is complete
+
     addBlock(transaction: Transaction, senderPublicKey: string, signature: Buffer) {
         const verifier = crypto.createVerify('SHA256');
         verifier.update(transaction.toString());
@@ -108,7 +107,6 @@ class Wallet {
 
 
 
-// Example usage
 const Thor = new Wallet();
 const Mikkel = new Wallet();
 const Christian = new Wallet();
